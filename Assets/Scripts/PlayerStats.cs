@@ -11,11 +11,14 @@ public class PlayerStats : MonoBehaviour
     public Vector2 direction;
     public GameObject PlayerBullet;
     public GameObject PlayerBullet2;
+
+    public int bulletCounter;
     // Start is called before the first frame update
     void Start()
     {
         rb2d=GetComponent<Rigidbody2D>();
     }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
@@ -41,6 +44,16 @@ public class PlayerStats : MonoBehaviour
                 SceneManager.LoadScene("GameOver");
             }
         }
+        if (collision.gameObject.CompareTag("Vida"))
+        {
+            life++;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("municion"))
+        {
+            bulletCounter++;
+            Destroy(collision.gameObject);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -58,19 +71,22 @@ public class PlayerStats : MonoBehaviour
     }
     void Shoot()
     {
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        if(Input.GetKeyDown(KeyCode.Space)&& bulletCounter>0) 
         {
             GameObject obj = Instantiate(PlayerBullet);
             obj.transform.position = transform.position;
             obj.GetComponent<PlayerBullet>();
+            bulletCounter--;
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z)&& bulletCounter>0)
         {
             GameObject obj = Instantiate(PlayerBullet2);
             obj.transform.position = transform.position;
             obj.GetComponent<PlayerBullet>();
+            bulletCounter--;
         }
     }
+
 
     //Bala   public Vector2 Direction {set => direction + value;}
 }

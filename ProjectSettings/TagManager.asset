@@ -7,6 +7,8 @@ TagManager:
   - playerbullet
   - playerbullet2
   - Enemy
+  - EnemyBullet
+  - Vida
   layers:
   - Default
   - TransparentFX

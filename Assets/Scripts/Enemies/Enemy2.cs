@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class Enemy1 : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     public int life;
     public float speed;
     public Rigidbody2D rb2d;
     public Vector2 direction;
+    public GameObject enemyBullet;
 
     public float timer;
     public float Maxtimer;
@@ -17,21 +16,22 @@ public class Enemy1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d=GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-                if (collision.gameObject.CompareTag("playerbullet"))
+        if (collision.gameObject.CompareTag("playerbullet"))
         {
             life--;
             if (life <= 0)
             {
                 Destroy(gameObject);
             }
-        }
+        }  
+
         if (collision.gameObject.CompareTag("playerbullet2"))
         {
-            life-=2;
+            life -= 2;
             if (life <= 0)
             {
                 Destroy(gameObject);
@@ -40,7 +40,7 @@ public class Enemy1 : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             life--;
             if (life <= 0)
@@ -55,21 +55,21 @@ public class Enemy1 : MonoBehaviour
     void Update()
     {
         Move();
-        ChangeDirection();
+        Shoot();
     }
     void Move()
     {
         rb2d.velocity = direction * speed;
     }
-    void ChangeDirection()
+    void Shoot()
     {
-        Maxtimer = Time.deltaTime;
-        if(timer>=Maxtimer)
+        timer += Time.deltaTime;
+        if(timer>=Maxtimer ) 
         {
-            direction *= -1;
-            timer = Time.deltaTime;
-         timer = 0;
-        }   
+            GameObject obj = Instantiate(enemyBullet);
+            obj.transform.position = transform.position;
+            obj.GetComponent<EnemyBullet>();
+        timer = 0;
+        }
     }
-
 }
