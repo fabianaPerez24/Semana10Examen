@@ -13,6 +13,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject PlayerBullet2;
 
     public int bulletCounter;
+    public int enemyCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +61,7 @@ public class PlayerStats : MonoBehaviour
     {
         Move();
         Shoot();
+        Nivel2();
     }
 
     void Move()
@@ -86,7 +88,17 @@ public class PlayerStats : MonoBehaviour
             bulletCounter--;
         }
     }
+    void Nivel2()
+    {
+        if(enemyCounter==2)
 
+        {
+            GetComponent<CambiarScenes>();
+            SceneManager.LoadScene("Nivel2");
+
+        }
+        
+    }
 
     //Bala   public Vector2 Direction {set => direction + value;}
 }

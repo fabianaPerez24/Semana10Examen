@@ -63,7 +63,8 @@ public class Enemy1 : MonoBehaviour
     }
     void ChangeDirection()
     {
-        Maxtimer = Time.deltaTime;
+
+        timer += Time.deltaTime;
         if(timer>=Maxtimer)
         {
             direction *= -1;

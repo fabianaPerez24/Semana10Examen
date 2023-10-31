@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyBullet
   - Vida
+  - municion
   layers:
   - Default
   - TransparentFX
