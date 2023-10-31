@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerStats : MonoBehaviour
     public float speed;
     public Vector2 direction;
     public GameObject PlayerBullet;
+    public GameObject PlayerBullet2;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,29 @@ public class PlayerStats : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            life--;
+            if(life <= 0)
+            {
+                Destroy(gameObject);   
+
+                GetComponent<CambiarScenes>();
+                SceneManager.LoadScene("GameOver");
+            }
+        }
+
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            life--;
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+
+                GetComponent<CambiarScenes>();
+                SceneManager.LoadScene("GameOver");
+            }
+        }
     }
     // Update is called once per frame
     void Update()
@@ -40,7 +64,12 @@ public class PlayerStats : MonoBehaviour
             obj.transform.position = transform.position;
             obj.GetComponent<PlayerBullet>();
         }
-    
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            GameObject obj = Instantiate(PlayerBullet2);
+            obj.transform.position = transform.position;
+            obj.GetComponent<PlayerBullet>();
+        }
     }
 
     //Bala   public Vector2 Direction {set => direction + value;}
