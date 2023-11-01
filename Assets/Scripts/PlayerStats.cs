@@ -17,17 +17,17 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb2d=GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             life--;
-            if(life <= 0)
+            if (life <= 0)
             {
-                Destroy(gameObject);   
+                Destroy(gameObject);
 
                 GetComponent<CambiarScenes>();
                 SceneManager.LoadScene("GameOver");
@@ -67,38 +67,37 @@ public class PlayerStats : MonoBehaviour
     void Move()
     {
         direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y= Input.GetAxisRaw("Vertical");  
+        direction.y = Input.GetAxisRaw("Vertical");
 
         rb2d.velocity = direction * speed;
     }
     void Shoot()
     {
-        if(Input.GetKeyDown(KeyCode.Space)&& bulletCounter>0) 
+        if (Input.GetKeyDown(KeyCode.Space) && bulletCounter > 0)
         {
             GameObject obj = Instantiate(PlayerBullet);
-            obj.transform.position = transform.position;
-            obj.GetComponent<PlayerBullet>();
+            obj.transform.position = transform.position + (Vector3)direction;
+            obj.GetComponent<PlayerBullet>().Direction = direction;
             bulletCounter--;
         }
-        if (Input.GetKeyDown(KeyCode.Z)&& bulletCounter>0)
+        if (Input.GetKeyDown(KeyCode.Z) && bulletCounter > 0)
         {
             GameObject obj = Instantiate(PlayerBullet2);
-            obj.transform.position = transform.position;
-            obj.GetComponent<PlayerBullet>();
+            obj.transform.position = transform.position + (Vector3)direction;
+            obj.GetComponent<PlayerBullet>().Direction = direction;
             bulletCounter--;
         }
     }
     void Nivel2()
     {
-        if(enemyCounter==2)
+        if (enemyCounter == 2)
 
         {
             GetComponent<CambiarScenes>();
             SceneManager.LoadScene("Nivel2");
 
         }
-        
+
     }
 
-    //Bala   public Vector2 Direction {set => direction + value;}
 }

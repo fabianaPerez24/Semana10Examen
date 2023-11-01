@@ -164,5 +164,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
-  direction: {x: 1, y: 0}
-  speed: 5
+  speed: 3

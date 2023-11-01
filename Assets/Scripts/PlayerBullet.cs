@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public Rigidbody2D rb2d;
-    public Vector2 direction;
+    private Vector2 direction;
     public float speed;
 
+    public Vector2 Direction { set => direction = value; }
 
-    // Start is called before the first frame update
-    void Start()
+
+
+// Start is called before the first frame update
+void Start()
     {
         rb2d=GetComponent<Rigidbody2D>();
     }
