@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4c17ce8feed7a47963d82ea3d0ca9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 2
+  life: 3
   rb2d: {fileID: 0}
   speed: 2
   direction: {x: 0, y: 0}
@@ -405,7 +405,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1714594873
 SpriteRenderer:
   m_ObjectHideFlags: 0
