@@ -99,9 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0b1fe93340a374f813c74d21470222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2d: {fileID: 0}
-  direction: {x: 1, y: 1}
   speed: 2
+  rb2d: {fileID: 0}
 --- !u!50 &8577597327615532475
 Rigidbody2D:
   serializedVersion: 4
@@ -117,7 +116,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

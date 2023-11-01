@@ -20,6 +20,20 @@ public class PlayerStats : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+                if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            life--;
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+
+                GetComponent<CambiarScenes>();
+                SceneManager.LoadScene("GameOver");
+            }
+        }
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -45,17 +59,7 @@ public class PlayerStats : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("EnemyBullet"))
-        {
-            life--;
-            if (life <= 0)
-            {
-                Destroy(gameObject);
 
-                GetComponent<CambiarScenes>();
-                SceneManager.LoadScene("GameOver");
-            }
-        }
         if (collision.gameObject.CompareTag("Vida"))
         {
             life++;
