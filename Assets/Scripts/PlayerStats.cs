@@ -33,6 +33,17 @@ public class PlayerStats : MonoBehaviour
                 SceneManager.LoadScene("GameOver");
             }
         }
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            life--;
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+
+                GetComponent<CambiarScenes>();
+                SceneManager.LoadScene("GameOver");
+            }
+        }
 
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {

@@ -156,6 +156,7 @@ MonoBehaviour:
   speed: 4
   rb2d: {fileID: 0}
   direction: {x: 1, y: 0}
+  playerStats: {fileID: 0}
   timer: 0
   Maxtimer: 2
 --- !u!58 &73742806
@@ -589,6 +590,7 @@ MonoBehaviour:
   PlayerBullet: {fileID: 2827040552771307284, guid: 87e599d0e050abb4a9f7ef69106393da, type: 3}
   PlayerBullet2: {fileID: 4934652801618245476, guid: aad8d160998a3f341b07b65edc3f0dce, type: 3}
   bulletCounter: 5
+  enemyCounter: 0
 --- !u!61 &444992103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -942,6 +944,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   direction: {x: 0, y: 0}
   enemyBullet: {fileID: 9211485305542915842, guid: 59d34cf13a0be6b409fcd7d4520da569, type: 3}
+  playerStats: {fileID: 0}
   timer: 0
   Maxtimer: 2
 --- !u!58 &1005944310
@@ -1068,7 +1071,7 @@ Transform:
   m_GameObject: {fileID: 1005944308}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.67, y: 3.78, z: 0}
+  m_LocalPosition: {x: 2.37, y: 3.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

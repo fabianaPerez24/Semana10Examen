@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public Rigidbody2D rb2d;
+
+
     public Vector2 direction;
     public float speed;
 
@@ -24,6 +26,8 @@ public class EnemyBullet : MonoBehaviour
     void Move()
     {
         rb2d.velocity = direction * speed;
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

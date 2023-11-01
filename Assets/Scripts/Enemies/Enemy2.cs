@@ -10,9 +10,10 @@ public class Enemy2 : MonoBehaviour
     public Vector2 direction;
     public GameObject enemyBullet;
 
+    public PlayerStats playerStats;
     public float timer;
     public float Maxtimer;
-    //public GameObject Enemybullet;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Enemy2 : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
+                playerStats.enemyCounter++;
             }
         }  
 
@@ -35,6 +37,7 @@ public class Enemy2 : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
+                playerStats.enemyCounter++;
             }
         }
     }
@@ -46,6 +49,7 @@ public class Enemy2 : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
+                playerStats.enemyCounter++;
             }
         }
 

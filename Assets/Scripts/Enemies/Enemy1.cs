@@ -11,6 +11,8 @@ public class Enemy1 : MonoBehaviour
     public Rigidbody2D rb2d;
     public Vector2 direction;
 
+    public PlayerStats playerStats;
+
     public float timer;
     public float Maxtimer;
     //public GameObject Enemybullet;
@@ -27,6 +29,9 @@ public class Enemy1 : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
+
+                playerStats.enemyCounter++;
+                
             }
         }
         if (collision.gameObject.CompareTag("playerbullet2"))
@@ -35,6 +40,7 @@ public class Enemy1 : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
+                playerStats.enemyCounter++;
             }
         }
     }
@@ -46,6 +52,7 @@ public class Enemy1 : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
+                playerStats.enemyCounter++;
             }
         }
 

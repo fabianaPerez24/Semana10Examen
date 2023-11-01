@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
-  direction: {x: 1, y: 0}
+  direction: {x: 1, y: 1}
   speed: 2
 --- !u!50 &8577597327615532475
 Rigidbody2D:
